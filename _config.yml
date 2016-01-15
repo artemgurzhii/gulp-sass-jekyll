@@ -1,0 +1,9 @@
+name: Basic Setup
+markdown: redcarpet
+highlighter: rouge
+description: A starter project including full setup for Jekyll, Jade, Gulp, SASS, AutoPrefixer, BrowserSync, JS & CSS minification and other
+exclude: ["node_modules", "gulpfile.js", "package.json", "config.codekit", "bower_components"]
+permalink: pretty
+sass:
+  sass_dir: css/min/main.min.css
+  style: expanded
