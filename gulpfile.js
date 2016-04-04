@@ -1,4 +1,6 @@
 var gulp             = require('gulp'),
+// add babel that let you using ES6
+    babel            = require('gulp-babel'),
 // rename css files after minification
     rename           = require("gulp-rename"),
 // gulp sass
@@ -61,19 +63,17 @@ var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll',
 };
 
 // Build the Jekyll Site
-gulp.task('jekyll-build', function (done) {
+gulp.task('jekyll-build', (done) => {
   browserSync.notify(messages.jekyllBuild);
   return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
     .on('close', done);
 });
 
 // Rebuild Jekyll & do page reload
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
-  browserSync.reload();
-});
+gulp.task('jekyll-rebuild', ['jekyll-build'], () => browserSync.reload());
 
 // Wait for jekyll-build, then launch the Server
-gulp.task('browser-sync', ['jekyll-build'], function() {
+gulp.task('browser-sync', ['jekyll-build'], () => {
   browserSync({
     server: {
       baseDir: assetsDir.site
@@ -86,7 +86,7 @@ gulp.task('browser-sync', ['jekyll-build'], function() {
 
 // this part response for sass converting in css
 // and minification, autoprefixer, renaming
-gulp.task('css', function() {
+gulp.task('css', () => {
   return gulp.src(assetsDir.sass)
     .pipe(sass({
       includePaths: ['css'],
@@ -100,7 +100,7 @@ gulp.task('css', function() {
 });
 
 // this part response for converting jade in html
-gulp.task('jade', function(){
+gulp.task('jade', () => {
   return gulp.src(assetsDir.jadeAll)
     .pipe(jade())
     .pipe(debug({title: 'Checking:'}))
@@ -108,7 +108,7 @@ gulp.task('jade', function(){
 });
 
 // this part response for image minification
-gulp.task('image', function () {
+gulp.task('image', () => {
   return gulp.src(assetsDir.imagesAll)
     .pipe(imageminPngquant({quality: '65-80', speed: 4})())
     .pipe(debug({title: 'Checking:'}))
@@ -116,8 +116,11 @@ gulp.task('image', function () {
 });
 
 // this part response for all stuff with js
-gulp.task('js', function() {
+gulp.task('js', () => {
   return gulp.src(assetsDir.jsMain)
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(jscpd({
       'min-lines': 1,
       verbose    : true
@@ -132,20 +135,20 @@ gulp.task('js', function() {
 });
 
 // watch changes and run tasks
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   gulp.watch(assetsDir.sassAll, ['css', 'jekyll-build', 'jekyll-rebuild']);
   gulp.watch(assetsDir.jsAll, ['js', 'jekyll-build', 'jekyll-rebuild']);
   gulp.watch(assetsDir.jadeAll, ['jade', 'jekyll-build', 'jekyll-rebuild']);
 });
 
 // Prevent pipe breaking caused by errors from gulp plugins
-gulp.task('plumber', function() {
+gulp.task('plumber', () => {
   return gulp.src(['css'], {read: false})
     .pipe(plumber())
     .pipe(debug({title: 'Checking:'}));
 });
 
 // default task
-gulp.task('default', function() {
+gulp.task('default', () => {
   gulp.start('image', 'plumber', 'browser-sync', 'watch', 'jade', 'css', 'js', 'jekyll-build', 'jekyll-rebuild');
 });
