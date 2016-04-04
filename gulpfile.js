@@ -1,4 +1,4 @@
-var gulp             = require('gulp'),
+const gulp             = require('gulp'),
 // add babel that let you using ES6
     babel            = require('gulp-babel'),
 // rename css files after minification
@@ -33,8 +33,11 @@ var gulp             = require('gulp'),
 //  gulp debug in terminal
     debug            = require('gulp-debug');
 
+// list of all tasks
+const tasks = ['image', 'plumber', 'browser-sync', 'watch', 'jade', 'css', 'js', 'jekyll-build', 'jekyll-rebuild'];
+
 // here is all assets directories
-var assetsDir = {
+const assetsDir = {
   // css
   cssAll:  'assets/css/*.*',
   css:     'assets/css/*.css',
@@ -57,7 +60,7 @@ var assetsDir = {
   site:     '_site'
 }
 
-var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll',
+const jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll',
   messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> jekyll build'
 };
@@ -131,7 +134,7 @@ gulp.task('js', () => {
     .pipe(changed(assetsDir.jsAll))
     .pipe(uglify())
     .pipe(gulp.dest(''))
-    .pipe(debug({title: 'Checking:'}))
+    .pipe(debug({title: 'Checking:'}));
 });
 
 // watch changes and run tasks
@@ -149,6 +152,4 @@ gulp.task('plumber', () => {
 });
 
 // default task
-gulp.task('default', () => {
-  gulp.start('image', 'plumber', 'browser-sync', 'watch', 'jade', 'css', 'js', 'jekyll-build', 'jekyll-rebuild');
-});
+gulp.task('default', () => gulp.start(tasks));

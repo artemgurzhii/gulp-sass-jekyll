@@ -30,7 +30,7 @@ To use this starter project, you'll need the following things installed on your 
 
 2. JS:
 
-        jscpd, jshint, concat, uglify
+        Babel(ES2015), jscpd, jshint, concat, uglify
 
 3. IMG:
 

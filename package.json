@@ -1,8 +1,11 @@
 {
   "name": "Gulp-Jekyll-Jade Basic Setup",
-  "version": "0.1.2",
-  "author": "Artem Hurzhii",
-  "description": "A starter project including full setup for Jekyll, Jade, Gulp, SASS, AutoPrefixer, BrowserSync, JS &amp; CSS minification and other.",
+  "description": "A starter project including full setup for Jekyll, Jade, Gulp, SASS, AutoPrefixer, BrowserSync, JS & CSS minification and other.",
+  "version": "0.1.3",
+  "author": {
+    "name": "Artem Hurzhii",
+    "url": "https://github.com/artemgurzhii"
+  },
   "main": "gulpfile.js",
   "license": "MIT",
   "devDependencies": {
@@ -34,14 +37,17 @@
     "url": "https://github.com/artemgurzhii/Gulp-Sass-Jade-Jekyll"
   },
   "keywords": [
-    "jekyll",
-    "gulp",
-    "sass",
-    "browsersync",
     "jade",
     "html",
+    "jekyll",
     "css",
+    "sass",
+    "javascript",
     "jquery",
-    "javascript"
-  ]
+    "gulp",
+    "browsersync"
+  ],
+  "bugs": {
+    "url": "https://github.com/artemgurzhii/Gulp-Sass-Jade-Jekyll/issues"
+  }
 }
