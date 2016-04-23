@@ -1,12 +1,13 @@
 name: Basic Setup
-author: Artem Hurzhii
+author: Artem Gurzhii
 author_email: artem.gurzhii@gmail.com
-url: https://github.com/artemgurzhii/Gulp-Sass-Jade-Jekyll
-version: 0.1.3
+url: https://github.com/artemgurzhii/Gulp-sass-jekyll
+version: 0.2.0
 markdown: redcarpet
 highlighter: rouge
-description: A starter project including full setup for Jekyll, Jade, Gulp, SASS, AutoPrefixer, BrowserSync, JS & CSS minification and other
-exclude: ["node_modules", "gulpfile.js", "package.json", "config.codekit", "bower_components"]
+baseurl: ""
+description: A starter project including full setup for Jekyll, Gulp, SASS, AutoPrefixer, BrowserSync, JS & CSS minification and other
+exclude: ["node_modules", "gulpfile.babel.js", "package.json", "config.codekit", "data.json", "Gemfile", "Gemfile.lock", "LICENSE", "ToDo.txt", "assets/js/common.js", "assets/css/1-tools", "assets/css/2-modules", "assets/css/main.sass", "assets/css/main.css", "README.md"]
 permalink: pretty
 sass:
   sass_dir: assets/css/main.sass
