@@ -1,7 +1,7 @@
 name: Basic Setup
 author: Artem Gurzhii
 author_email: artem.gurzhii@gmail.com
-url: https://github.com/artemgurzhii/Gulp-sass-jekyll
+url: https://github.com/artemgurzhii/gulp-sass-jekyll
 version: 0.2.0
 markdown: redcarpet
 highlighter: rouge

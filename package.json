@@ -1,17 +1,17 @@
 {
   "name": "Basic-Setup",
   "description": "A starter project including full setup for Jekyll, Gulp, SASS",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "author": {
     "name": "Artem Gurzhii",
     "url": "https://github.com/artemgurzhii"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/artemgurzhii/Gulp-sass-jekyll"
+    "url": "https://github.com/artemgurzhii/gulp-sass-jekyll"
   },
   "bugs": {
-    "url": "https://github.com/artemgurzhii/Gulp-sass-jekyll/issues"
+    "url": "https://github.com/artemgurzhii/gulp-sass-jekyll/issues"
   },
   "main": "gulpfile.babel.js",
   "license": "MIT",
