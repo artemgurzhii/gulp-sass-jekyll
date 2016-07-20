@@ -4,7 +4,7 @@ Gulp-Sass-Jekyll
 A starter project including full setup for Jekyll, Gulp, SASS, AutoPrefixer, BrowserSync, JS &amp; CSS minification and other.
 
 
-## Use latest JavaScript version in your gulpfile
+## Use last JavaScript version in your gulpfile
 This project is build on Gulp 4. Node already supports a lot of **ES2015**, to avoid compatibility problem install Babel and rename your `gulpfile.js` as `gulpfile.babel.js`.
 
 ```
