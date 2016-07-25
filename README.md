@@ -41,7 +41,7 @@ To use this starter project, you'll need following installed on your machine.
 
 1. Run `jekyll serve --watch`
 2. Run `gulp --watch`
-3. In `gulpfile.babel.js` change assetsDir for your comfortable usage.
+3. In `gulpfile.babel.js` change 'paths' variable for your comfortable usage.
 
 
 ## Project Structure
