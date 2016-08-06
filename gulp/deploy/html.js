@@ -11,7 +11,7 @@ module.exports = options => {
         $.htmlmin({
           collapseWhitespace: true
         }),
-      gulp.dest('_site/')
+      gulp.dest(options.dest)
     ).on('error', $.notify.onError());
   };
 };

@@ -4,9 +4,6 @@ import imageminPngquant  from 'imagemin-pngquant';
 import {obj as combiner} from 'stream-combiner2';
 import gulp              from 'gulp';
 
-// Path
-const imagesMin = 'assets/img/min/';
-
 // Module
 module.exports = options => {
   return () => {
@@ -20,7 +17,7 @@ module.exports = options => {
             speed: 1
           })]
         }),
-      gulp.dest(imagesMin)
+      gulp.dest(options.dest)
     ).on('error', $.notify.onError());
   };
 };

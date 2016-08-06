@@ -4,15 +4,8 @@ import {obj as combiner} from 'stream-combiner2';
 import pxtorem           from 'postcss-pxtorem';
 import zindex            from 'postcss-zindex';
 import focus             from 'postcss-focus';
-import browserSync       from 'browser-sync';
 import cssMqpacker       from 'css-mqpacker';
 import gulp              from 'gulp';
-
-// Dev
-const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'devlopment'; // NODE_ENV=production gulp
-
-// Path
-const cssMin = 'assets/css/min';
 
 // Module
 module.exports = options => {
@@ -22,10 +15,9 @@ module.exports = options => {
         $.plumber(),
         $.changed('.'),
         $.size(),
-        $.if(isDevelopment, $.sourcemaps.init()),
+        $.sourcemaps.init(),
         $.sass({
-          includePaths: ['assets/css/'],
-          onError: browserSync.notify
+          includePaths: ['assets/css/']
         }),
         $.postcss([ zindex, pxtorem, focus, cssMqpacker ]),
         $.autoprefixer({
@@ -39,8 +31,8 @@ module.exports = options => {
         $.debug({
           title: 'Checking CSS:'
         }),
-        $.if(isDevelopment, $.sourcemaps.write('.')),
-      gulp.dest(cssMin)
+        $.sourcemaps.write('.'),
+      gulp.dest(options.dest)
     ).on('error', $.notify.onError());
   };
 };

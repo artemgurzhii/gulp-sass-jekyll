@@ -4,9 +4,6 @@ import {obj as combiner} from 'stream-combiner2';
 import webpack           from 'webpack-stream';
 import gulp              from 'gulp';
 
-// Path
-const jsMin = 'assets/js/min';
-
 // Module
 module.exports = options => {
   return () => {
@@ -19,11 +16,11 @@ module.exports = options => {
         }),
         $.uglify(),
         $.rename({
-          basename: "common",
-          suffix: ".min",
-          extname: ".js"
+          basename: 'common',
+          suffix: '.min',
+          extname: '.js'
         }),
-      gulp.dest(jsMin)
+      gulp.dest(options.dest)
     ).on('error', $.notify.onError());
     return combined;
   };

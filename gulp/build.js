@@ -1,5 +1,5 @@
 // Plugins
-import cp                from 'child_process';
+import cp from 'child_process';
 
 // Module
 module.exports = options => {

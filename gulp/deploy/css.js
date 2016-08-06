@@ -7,9 +7,6 @@ import focus             from 'postcss-focus';
 import cssMqpacker       from 'css-mqpacker';
 import gulp              from 'gulp';
 
-// Path
-const cssMin = 'assets/css/min';
-
 // Module
 module.exports = options => {
   return () => {
@@ -27,7 +24,7 @@ module.exports = options => {
         $.rename({
           suffix: ".min"
         }),
-      gulp.dest(cssMin)
+      gulp.dest(options.dest)
     ).on('error', $.notify.onError());
   };
 };

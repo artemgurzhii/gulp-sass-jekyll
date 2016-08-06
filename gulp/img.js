@@ -1,11 +1,8 @@
 // Plugins
 const $ = require('gulp-load-plugins')();
-import imageminPngquant from 'imagemin-pngquant';
+import imageminPngquant  from 'imagemin-pngquant';
 import {obj as combiner} from 'stream-combiner2';
 import gulp              from 'gulp';
-
-// Path
-const imagesMin = 'assets/img/min/';
 
 // Module
 module.exports = options => {
@@ -23,7 +20,7 @@ module.exports = options => {
         $.debug({
           title: 'Checking Images:'
         }),
-      gulp.dest(imagesMin)
+      gulp.dest(options.dest)
     ).on('error', $.notify.onError());
   };
 };
