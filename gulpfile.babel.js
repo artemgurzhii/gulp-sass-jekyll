@@ -2,12 +2,12 @@ import gulp from 'gulp';
 
 // defining main paths for .sass/.js/.html etc files
 const paths = {
-  css:    'assets/css/main.sass',
+  css:    'assets/css/*.sass',
   cssMin: 'assets/css/min',
   js:     'assets/js/common.js',
   jsMain: 'assets/js/modules/*.js',
   jsMin:  'assets/js/min',
-  img:    'assets/img/*.*',
+  img:    'assets/img/**',
   imgMin: 'assets/img/min/',
   clean:  '_site',
   site:   '_site/index.html',
